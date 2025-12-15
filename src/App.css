@@ -1,0 +1,196 @@
+/* =========================================
+   Variáveis globais e cores
+   ========================================= */
+:root {
+  --bg: #242424;           /* Cor de fundo padrão (modo escuro) */
+  --bg-light: #f4f4f4;     /* Cor de fundo para tema claro */
+  --dark: #222;             /* Cor do header e footer no modo escuro */
+  --accent: #646cff;        /* Cor de destaque / links */
+  --text: rgba(255, 255, 255, 0.87);  /* Cor do texto no modo escuro */
+  --card: #1a1a1a;          /* Fundo dos cards / seções */
+  --radius: 10px;           /* Raio das bordas arredondadas */
+  --max-width: 1000px;      /* Largura máxima do container */
+}
+
+/* =========================================
+   Reset global e estilos básicos
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* garante que footer fique no final */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   Containers
+   ========================================= */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* =========================================
+   Header
+   ========================================= */
+header {
+  background: var(--dark); /* usa cor do tema */
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0.75rem 0;
+  opacity: 0.9;
+}
+
+/* Navegação */
+.nav a {
+  color: var(--accent);
+  margin: 0 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* =========================================
+   Sections
+   ========================================= */
+section {
+  background: transparent;
+  padding: 2rem 1rem;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+/* =========================================
+   Projects / cards
+   ========================================= */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.btn-small {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+/* =========================================
+   Contact form
+   ========================================= */
+.contact-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 500px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+}
+
+.btn {
+  margin-top: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--dark);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+  background: var(--dark); /* cor do footer do tema escuro */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+/* =========================================
+   Responsividade
+   ========================================= */
+@media (max-width: 600px) {
+  .header-inner { padding: 0 1rem; }
+  .container { padding: 1rem; }
+}
+
+/* =========================================
+   Tema claro
+   ========================================= */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--bg-light);         /* fundo principal claro */
+    --card: #fff;                  /* fundo dos cards claro */
+    --text: #213547;               /* texto escuro */
+    --dark: #7aa2c1;               /* cor personalizada para header/footer */
+    --accent: #535bf2;             /* cor de destaque */
+  }
+
+  /* Header e footer usando a cor personalizada do tema claro */
+  header, footer {
+    background: var(--dark);
+    color: var(--text);
+  }
+}

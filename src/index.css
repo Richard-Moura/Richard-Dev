@@ -1,0 +1,232 @@
+/* =========================================
+   Variáveis e reset
+   ========================================= */
+:root {
+  /* Tipografia */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Esquema de cores */
+  color-scheme: light dark;
+  --text: rgba(255, 255, 255, 0.87);   /* texto padrão modo escuro */
+  --bg: #242424;                        /* fundo principal */
+  --card: #1a1a1a;                      /* fundo dos cards */
+  --accent: #646cff;                     /* cor de destaque / links */
+  --header-footer: #1a1a1a;             /* header e footer escuro */
+  --radius: 10px;                        /* bordas arredondadas */
+  --max-width: 1000px;                  /* largura máxima do container */
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* =========================================
+   Containers
+   ========================================= */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* =========================================
+   Header
+   ========================================= */
+header {
+  background-color: var(--header-footer);
+  color: var(--text);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+header p {
+  opacity: 0.9;
+  margin-top: 0.25rem;
+}
+
+/* Navegação */
+.nav a {
+  color: var(--accent);
+  margin: 0 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav a:hover {
+  color: #535bf2;
+}
+
+/* =========================================
+   Sections / Cards
+   ========================================= */
+section {
+  background: transparent;
+  padding: 2rem 1rem;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+/* Lista de projetos */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background-color: var(--card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* Botões pequenos */
+.btn-small {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.btn-small:hover {
+  background: var(--accent);
+  color: var(--text);
+}
+
+/* =========================================
+   Formulário de contato
+   ========================================= */
+.contact-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 500px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+}
+
+button, .btn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6rem 1.2rem;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--header-footer);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.3s, color 0.3s;
+}
+button:hover, .btn:hover {
+  border-color: var(--accent);
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+  background-color: var(--header-footer);
+  color: var(--text);
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+footer a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #535bf2;
+}
+
+/* =========================================
+   Responsividade
+   ========================================= */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+  header, footer {
+    padding: 1rem;
+  }
+}
+
+/* =========================================
+   Tema claro
+   ========================================= */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f4f4;                   /* fundo principal claro */
+    --card: #ffffff;                  /* fundo dos cards */
+    --text: #213547;                  /* texto escuro */
+    --accent: #535bf2;                /* cor de destaque */
+    --header-footer: #7aa2c1;         /* header/footer masculino claro */
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  header, footer {
+    background-color: var(--header-footer);
+    color: var(--text);
+  }
+
+  .nav a {
+    color: var(--accent);
+  }
+  .nav a:hover, footer a:hover {
+    color: #747bff;
+  }
+
+  button, .btn {
+    background-color: #dce4eb;
+    color: #213547;
+  }
+}
